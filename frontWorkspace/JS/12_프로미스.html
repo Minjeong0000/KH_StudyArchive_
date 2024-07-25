@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>프로미스</h1>
+
+</body>
+</html>
+
+<script>
+
+  new Promise( (resolve , reject)=>{
+    console.log("어떤함수 ~~~");
+    resolve("성공해서받은리턴값");
+  } )
+  .then( (str)=>{console.log(str);} )
+  .catch( (str)=>{console.log(str);} )
+  ;
+
+
+  new Promise( (resolve , reject)=>{
+
+    //서버한테 요청 보내고, 응답 받아오기
+
+    if(result == 200){
+      resolve(data);
+    }else{
+      reject(new Error("zzzz"));
+    }
+
+  } );
+
+
+
+</script>
+
+

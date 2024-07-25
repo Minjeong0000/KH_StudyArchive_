@@ -1,0 +1,74 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  background-color: rgb(171, 232, 232);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrap{
+  width: 600px;
+  height: 700px;
+  background-color: rgb(188, 188, 188);
+  font-size: 1.5em;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 4fr;
+  grid-template-columns: 1fr 3fr;
+
+  justify-items: center;
+  align-items: center;
+  
+}
+
+#wrap input {
+  width: 80%;
+  background-color: rgb(188, 188, 188);
+  border: 0px;
+  border-bottom: 1px dashed black;
+}
+
+#wrap > div:nth-child(4) , 
+#wrap > div:nth-child(6){
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrap > div:nth-child(4) > div {
+  color: white;
+  font-size: 0.5em;
+}
+
+#pwdText , #pwdCheckText{
+  visibility: hidden;
+}
+
+#pwdText.active , #pwdCheckText.active {
+  visibility: visible;
+}
+
+#wrap > div:last-child {
+  width: 100%;
+  height: 100%;
+
+  grid-column: span 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#wrap > div:last-child > button {
+  width: 80%;
+  height: 20%;
+  background-color: green;
+  margin-bottom: 20px;
+}

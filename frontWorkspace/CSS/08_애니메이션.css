@@ -1,0 +1,135 @@
+.box{
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+#target{
+  /* 
+  transition-property: all;
+  transition-duration: 2s;
+  transition-delay: 1s;
+  transition-timing-function: cubic-bezier(); 
+  */
+
+  /* transition: all 2s 1s cubic-bezier(); */
+
+  animation-name: hello2;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+#target:hover{
+  animation-play-state: paused;
+}
+
+@keyframes hello {
+  0% {
+    background-color: red;
+    width: 300px;
+    height: 300px;
+  }
+  50% {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    background-color: green;
+    width: 200px;
+    height: 200px;    
+  }
+}
+
+
+
+#t{
+  animation-name: abc2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#t:hover{
+  animation-play-state: paused;
+}
+
+@keyframes abc {
+  0%{
+    
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
+
+
+.btn-jelly:hover{
+  background-color: violet;
+  border-radius: 10px;
+  border-width: 0px;
+
+  animation-name: jelly;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes jelly {
+  0%{
+    background-color: violet;
+    transform: scale(0.8, 1.2);
+  }
+  50%{
+    background-color: rgb(207, 63, 152);
+    transform: scale(1.2, 0.9);
+  }
+  100%{
+    background-color: rgb(146, 23, 146);
+    transform: scale(0.5, 1.3);
+  }
+}
+
+#back-v:hover {
+  transform: rotateX(180deg);
+  transition: 2s;
+  backface-visibility: hidden;
+}
+
+#card{
+  width: 80px;
+  height: 100px;
+  border: 5px solid black;
+  box-sizing: border-box;
+  margin: 50px;
+  position: relative;
+}
+
+#card > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#card:hover > div{
+  transform: rotateX(180deg);
+}
+
+#front{
+  background-color: red;
+  backface-visibility: hidden;
+}
+
+#back{
+  background-color: blue;
+  z-index: -1;
+}
+
+

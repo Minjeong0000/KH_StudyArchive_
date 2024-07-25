@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>공공데이터</h1>
+
+  <button>미세먼지 정보 불러오기</button>
+
+  <div id="result"></div>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+  //버튼 클릭 시, f01함수가 실행되게
+  const btn = document.querySelector("button");
+  btn.addEventListener("click" , f01);
+
+  // f01함수 : api호출결과 콘솔창에 출력
+  function f01(){
+
+    const divTag = document.querySelector("#result");
+    
+    $.ajax( {
+      url: "https://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo?serviceKey=6NNrLNv1%2F%2BS5FaEk3uFCD7iBWtx%2BhPiMbXO74RlMhjrGSb9lLrGKd0zD2h8uM9gL0onep3jY43Ml7SFLNvI9BQ%3D%3D&returnType=json&numOfRows=3&pageNo=1&year=2024&itemCode=PM10",
+      type: "GET",
+      success: function(x){ //매개변수x에는 응답받은 결과 담김
+        const itemList = x.response.body.items;
+        let str = "";
+        for(let i = 0 ; i < itemList.length; ++i){
+          str += "<h3>" + itemList[i].districtName + " / " + itemList[i].issueGbn + " / " + itemList[i].issueVal + "</h3>"
+        }
+        divTag.innerHTML = str;
+      },
+      error: (x)=>{   //매개변수x에는 Error 객체 담김
+        console.log(x);
+      },
+    } );
+
+  }
+
+</script>
